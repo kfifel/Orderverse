@@ -1,11 +1,11 @@
 package com.youcode.order_management.web.rest;
 
 import com.youcode.order_management.domain.Order;
-import com.youcode.order_management.web.rest.dto.PaymentDetails;
+import com.youcode.order_management.web.dto.PaymentDetails;
 import com.youcode.order_management.domain.enums.OrderStatus;
 import com.youcode.order_management.service.OrderService;
-import com.youcode.order_management.web.rest.dto.OrderDTO;
-import com.youcode.order_management.web.rest.mapper.OrderMapper;
+import com.youcode.order_management.web.dto.OrderDTO;
+import com.youcode.order_management.web.mapper.OrderMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

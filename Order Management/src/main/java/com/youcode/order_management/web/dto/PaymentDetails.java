@@ -1,6 +1,5 @@
-package com.youcode.order_management.web.rest.dto;
+package com.youcode.order_management.web.dto;
 
-import jakarta.persistence.Entity;
 import lombok.*;
 
 @Data

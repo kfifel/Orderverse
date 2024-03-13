@@ -1,7 +1,7 @@
 package com.youcode.order_management.service;
 
 import com.youcode.order_management.domain.Order;
-import com.youcode.order_management.web.rest.dto.PaymentDetails;
+import com.youcode.order_management.web.dto.PaymentDetails;
 import com.youcode.order_management.domain.enums.OrderStatus;
 import org.springframework.stereotype.Service;
 
