@@ -1,0 +1,15 @@
+server:
+    port: 8081
+
+spring:
+  application:
+    name: Order Management
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/microservices_order_management?createDatabaseIfNotExist=true
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
