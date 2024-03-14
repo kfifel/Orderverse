@@ -1,0 +1,42 @@
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway
+
+  #to enable colors when you run your app on the terminal
+  output:
+    ansi:
+      enabled: always
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true # Optional: Use lowercase service IDs
+
+      routes:
+        - id: order-management-route
+          uri: lb://OrderManagement
+          predicates:
+            - Path=/api/orders/**
+          filters:
+            - StripPrefix=1
+        - id: product-management-route
+          uri: lb://ProductManagement
+          predicates:
+            - Path=/api/products/
+          filters:
+            - StripPrefix=1
+
+
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetchRegistry: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka
