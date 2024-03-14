@@ -3,7 +3,12 @@ server:
 
 spring:
   application:
-    name: Order Management
+    name: OrderManagement
+
+  #to enable colors when you run your app on the terminal
+  output:
+    ansi:
+      enabled: always
 
   datasource:
     url: jdbc:mysql://localhost:3306/microservices_order_management?createDatabaseIfNotExist=true
