@@ -1,25 +1,16 @@
-package com.youcode.productmanagement.web.dto;
+package com.youcode.order_management.web.dto;
+
+
 import lombok.*;
 
 @Getter
 @Setter
-
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
-public class ProductDTO {
-
-    public ProductDTO(Long id, String name, String description, double price, int quantity) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.quantity = quantity;
-    }
+public class ProductDto {
 
     private Long id;
-
-    public ProductDTO() {
-    }
-
     private String name;
     private String description;
     private double price;
@@ -65,4 +56,3 @@ public class ProductDTO {
         this.quantity = quantity;
     }
 }
-

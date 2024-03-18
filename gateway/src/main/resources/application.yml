@@ -16,27 +16,24 @@ spring:
       discovery:
         locator:
           enabled: true
-          lower-case-service-id: true # Optional: Use lowercase service IDs
+          lower-case-service-id: false # Optional: Use lowercase service IDs
 
       routes:
-        - id: order-management-route
+        - id: OrderManagement
           uri: lb://OrderManagement
           predicates:
             - Path=/api/orders/**
           filters:
-            - StripPrefix=1
-        - id: product-management-route
+        - id: ProductManagement
           uri: lb://ProductManagement
           predicates:
-            - Path=/api/products/
-          filters:
-            - StripPrefix=1
+            - Path=/api/products/**
 
 
 
 eureka:
   client:
     register-with-eureka: false
-    fetchRegistry: false
+    fetchRegistry: true
     service-url:
       defaultZone: http://localhost:8761/eureka

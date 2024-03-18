@@ -5,6 +5,7 @@ import com.youcode.order_management.web.dto.PaymentDetails;
 import com.youcode.order_management.domain.enums.OrderStatus;
 import com.youcode.order_management.service.OrderService;
 import com.youcode.order_management.web.dto.OrderDTO;
+import com.youcode.order_management.web.dto.ProductDto;
 import com.youcode.order_management.web.mapper.OrderMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,10 +16,12 @@ import org.springframework.web.bind.annotation.*;
 public class OrderResource {
     private final OrderService orderService;
     private final OrderMapper orderMapper;
+    private final ProductResource productClient;
 
-    public OrderResource(OrderService orderService, OrderMapper orderMapper) {
+    public OrderResource(OrderService orderService, OrderMapper orderMapper, ProductResource productClient) {
         this.orderService = orderService;
         this.orderMapper = orderMapper;
+        this.productClient = productClient;
     }
 
     @PostMapping
@@ -46,6 +49,13 @@ public class OrderResource {
     public ResponseEntity<OrderStatus> getOrderStatus(@PathVariable String orderId) {
         OrderStatus status = orderService.getOrderStatus(orderId);
         return ResponseEntity.ok(status);
+    }
+
+
+    @GetMapping("/{orderId}/product")
+    public ResponseEntity<ProductDto> getProductForOrder(@PathVariable Long orderId) {
+        ProductDto productById = productClient.getProductById(orderId);
+        return ResponseEntity.ok(productById);
     }
 
     @PostMapping("/{orderId}/payment")
