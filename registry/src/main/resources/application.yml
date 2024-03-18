@@ -1,0 +1,24 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: registry
+
+  #to enable colors when you run your app on the terminal
+  output:
+    ansi:
+      enabled: always
+
+  cloud:
+    config:
+      import-check:
+        enabled: false
+
+  # Eureka Configuration
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
